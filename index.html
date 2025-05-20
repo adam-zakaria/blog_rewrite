@@ -9,12 +9,27 @@
     <script src="https://unpkg.com/@heroicons/v2/24/outline"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+      @keyframes moveBackground {
+        0% { background-position: 0% 0%; }
+        50% { background-position: 100% 100%; }
+        100% { background-position: 0% 0%; }
+      }
+      .background {
+        background-image: 
+          linear-gradient(135deg, #ECF0F1 25%, transparent 25%),
+          linear-gradient(225deg, #ECF0F1 25%, transparent 25%),
+          linear-gradient(45deg, #ECF0F1 25%, transparent 25%),
+          linear-gradient(315deg, #ECF0F1 25%, #3498DB 25%);
+        background-position: 10px 0, 10px 0, 0 0, 0 0;
+        background-size: 20px 20px;
+        animation: moveBackground 20s ease-in-out infinite;
+      }
     </style>
     <link href="style.css" rel="stylesheet">
   </head>
   <body class="h-screen">
     <!-- Background -->
-    <div class="background bg-blue-100 min-h-screen p-4 h-full">
+    <div class="background bg-[#2c3e50] min-h-screen p-2 h-full opacity-95">
       <!-- Card -->
       <div class="card bg-[#2c3e50] bg-opacity-95 border-4 border-[#bdc3c7] rounded p-8 h-full flex flex-col items-center">
         <!-- Content -->
@@ -27,7 +42,7 @@
               <h1 class="text-4xl font-bold text-[#3498db] absolute bottom-[40px] left-[-60px] italic animate-pulse">Hello</h1>
             </div>
             <!-- About Adam List -->
-            <div class="about-adam-list flex flex-col gap-4 text-[#3498db]">
+            <div class="about-adam-list flex flex-col gap-2 text-[#3498db]">
               <div class="flex items-center gap-2">
                 <i class="fas fa-briefcase w-6 h-6 flex items-center justify-center"></i>
                 <span class="text-lg">Software Developer</span>
@@ -42,7 +57,7 @@
               </div>
               <div class="flex items-center gap-2">
                 <i class="fas fa-link w-6 h-6 flex items-center justify-center"></i>
-                <span class="text-lg">LinkedIn</span>
+                <a href="https://www.linkedin.com/in/adam-zakaria-543847271/" class="text-lg hover:underline" target="_blank">LinkedIn</a>
               </div>
             </div>
           </div>
@@ -55,7 +70,6 @@
           </div>
         </div>
       </div>
-      </div>
-      </body>
-      
-      </html>
+    </div>
+  </body>
+</html>
