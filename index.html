@@ -24,6 +24,9 @@
         background-size: 20px 20px;
         animation: moveBackground 20s ease-in-out infinite;
       }
+      summary::-webkit-details-marker {
+        display: none;
+      }
     </style>
     <link href="style.css" rel="stylesheet">
   </head>
@@ -67,18 +70,45 @@
             <!-- Projects -->
             <h1 class="text-5xl md:text-6xl lg:text-8xl font-bold mt-6 text-[#3498db]">Projects</h1>
 
-            <h2 class="text-xl md:text-2xl lg:text-3xl mt-4 text-[#3498db] mb-2 self-start">Context-Aware Reminder System & Alexa Conversational Agent</h2>
-            <img src="/images/ai_caring/ai_caring_partners.png" alt="Reminder System" class="w-full max-w-[700px] h-auto mb-2">
+            <details class="self-start">
+                <summary class="text-xl md:text-2xl lg:text-3xl mt-4 text-[#3498db] mb-2 cursor-pointer select-none focus:outline-none">
+                    Context-Aware Reminder System & Alexa Conversational Agent
+                    <img src="/images/ai_caring/ai_caring_partners.png" alt="Reminder System" class="w-full max-w-[700px] h-auto mt-2 mb-2">
+                </summary>
+                <p class="text-[#3498db] text-lg md:text-xl">Built two production services for elder-care pilot homes: (1) a contextual reminder engine that ingests 50 k+ smart-home sensor events per day and triggers prompts within an 8-second window, and (2) a GPT-4o–powered Alexa agent that carries multi-turn conversations. Achieved ≈ 200 ms end-to-end latency and seamless voice-first interaction.</p>
+            </details>
 
-            <h2 class="text-xl md:text-2xl lg:text-3xl mt-4 text-[#3498db] mb-2 self-start">Cliptu — AI Search & YouTube Shorts Generator</h2>
-            <img src="/images/cliptuLogo.png" alt="Reminder System" class="w-full max-w-[700px] h-auto mb-2">
+            <details class="self-start">
+                <summary class="text-xl md:text-2xl lg:text-3xl mt-4 text-[#3498db] mb-2 self-start cursor-pointer select-none focus:outline-none">
+                    Cliptu — AI Search & YouTube Shorts Generator
+                    <img src="/images/cliptuLogo.png" alt="Cliptu Logo" class="w-full max-w-[700px] h-auto mt-2 mb-2">
+                </summary>
+                <p class="text-[#3498db] text-lg md:text-xl">
+                  Created Cliptu, a SaaS tool that indexes every transcript in a YouTube channel for instant semantic search and automatically renders vertical Shorts with captions. Created YouTube shorts generating 10k+ views within the first 6 hours of posting.
+                </p>
+            </details>
 
-            <h2 class="text-xl md:text-2xl lg:text-3xl mt-4 text-[#3498db] mb-2 self-start">Model-Fine-Tuning Portal for Intelligence Analysts</h2>
-            <img src="/images/openmpf_viame.png" alt="Reminder System" class="w-full max-w-[700px] h-auto mb-2">
+            <details class="self-start">
+                <summary class="text-xl md:text-2xl lg:text-3xl mt-4 text-[#3498db] mb-2 cursor-pointer select-none focus:outline-none">
+                    Model-Fine-Tuning Portal for Intelligence Analysts
+                    <img src="/images/openmpf_viame.png" alt="Model Fine-Tuning Portal" class="w-full max-w-[700px] h-auto mt-2 mb-2">
+                </summary>
+                <p class="text-[#3498db] text-lg md:text-xl">
+Led development of a web app where intelligence analysts fine-tune models; boosted site specific mAP by ≈20 %, saving ~2.4 analyst-hours per day (≈880h / $60k per year) across 12 sites (estimated).
 
-            <h2 class="text-xl md:text-2xl lg:text-3xl mt-4 text-[#3498db] self-start">ATT&CK Defender Public Portal Creation</h2>
-            <img src="/images/mad.png" alt="Reminder System" class="w-full max-w-[700px] h-auto mb-2">
+                </p>
+            </details>
 
+            <details class="self-start">
+                <summary class="text-xl md:text-2xl lg:text-3xl mt-4 text-[#3498db] mb-2 cursor-pointer select-none focus:outline-none">
+                    ATT&CK Defender Public Portal Creation
+                    <img src="/images/mad.png" alt="ATT&CK Defender Portal" class="w-full max-w-[700px] h-auto mt-2 mb-2">
+                </summary>
+                <p class="text-[#3498db] text-lg md:text-xl">
+Launched MITRE Engenuity’s ATT&CK Defender site, handled the database and frontend.
+
+                </p>
+            </details>
           </div>
         </div>
       </div>
