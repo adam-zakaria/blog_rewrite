@@ -38,10 +38,15 @@ CNAME - www.fluent.monster : fluent.monster
 For TXT the server (nginx) needs to be configured so that certbot can generate certs for it. This involves adding a server block for nginx, which right now is being done by creating a symlink here:
 sudo ln -sf /etc/nginx/sites-enabled/default ~/nginx-config/default
 There is some weird issue where the file can be created with touch and can be written with tee, but vim cannot write the file. Disconcerting, but don't dwell on it and make do happily.
+The server block and certbot cmd must include adamzakaria.org and www.adamzakaria.org
 ```
-echo 'server { listen 80; server_name adamzakaria.org; location / { proxy_pass http://localhost:5174; proxy_http_version 1.1; proxy_set_header Upgrade $http_upgrade; proxy_set_header Connection "upgrade"; proxy_set_header Host $host; proxy_cache_bypass $http_upgrade; } }' | sudo tee /etc/nginx/sites-available/adamzakaria_org
+echo 'server { server_name adamzakaria.org www.adamzakaria.org; location / { proxy_pass http://localhost:5175; proxy_http_version 1.1; proxy_set_header Upgrade $http_upgrade; proxy_set_header Connection "upgrade"; proxy_set_header Host $host; proxy_cache_bypass $http_upgrade; } listen 443 ssl; ssl_certificate /etc/letsencrypt/live/adamzakaria.org/fullchain.pem; ssl_certificate_key /etc/letsencrypt/live/adamzakaria.org/privkey.pem; include /etc/letsencrypt/options-ssl-nginx.conf; ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; } server { if ($host = adamzakaria.org) { return 301 https://$host$request_uri; } if ($host = www.adamzakaria.org) { return 301 https://$host$request_uri; } listen 80; server_name adamzakaria.org www.adamzakaria.org; return 404; }' | sudo tee /etc/nginx/sites-enabled/adamzakaria_org
+```
+```
+sudo certbot --nginx -d adamzakaria.org -d www.adamzakaria.org
 ```
 
+A txt record is only needed for the cert process for DNS validation, using HTTP validation is easier, where certbot modifies the nginx config for the user vs. the user manually adding a TXT record.
 
 
 DNS configuration is confusing - don't try to understand their language, use your own.
