@@ -5,7 +5,7 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [],
     server: {
-      port: process.env.PORT || 5173, // Default to 5173 if PORT is not set
+      port: process.env.PORT || 5175, // Default to 5175 if PORT is not set
       host: '0.0.0.0',
     },
   };
